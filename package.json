@@ -1,0 +1,20 @@
+{
+  "name": "building-api-with-expressjs",
+  "version": "1.0.0",
+  "description": "This project involves building a RESTful API using Express.js, a popular and minimalist web framework for Node.js. Express.js enables fast and flexible backend development by providing essential features for handling HTTP requests, routing, middleware integration, and response management. ",
+  "homepage": "https://github.com/sajad-husain/building-api-with-expressJs#readme",
+  "bugs": {
+    "url": "https://github.com/sajad-husain/building-api-with-expressJs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajad-husain/building-api-with-expressJs.git"
+  },
+  "license": "ISC",
+  "author": "Sajjad Hussain",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
