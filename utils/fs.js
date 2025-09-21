@@ -13,4 +13,11 @@ const fs = require('fs')
 
 //sync call which reads data from file
 // main differece is in sync and async call is in sync call we need a callback function cz it does not return anything
-fs.readFile("./text.txt", "utf-8", (err, result) => { })
+fs.readFile("./text.txt", "utf-8", (err, result) => {
+    if (err) throw err
+
+    console.log('file read successfully');
+
+})
+
+
