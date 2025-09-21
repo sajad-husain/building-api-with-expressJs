@@ -8,6 +8,11 @@ const server = http.createServer((req, res) => {
     fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
         console.log(result);
     })
+
+    if (req.url === '/favicon.ico') {
+        res.end()
+    }
+
     switch (req.url) {
         case '/':
             res.end("This is Hompepage")
