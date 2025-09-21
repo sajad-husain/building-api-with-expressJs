@@ -13,18 +13,18 @@ const fs = require('fs')
 
 //sync call which reads data from file
 // main differece is in sync and async call is in sync call we need a callback function cz it does not return anything
-fs.readFile("./text.txt", "utf-8", (err, result) => {
-    if (err) {
-        console.log(err);
-    }
-    else {
-        console.log("Reading file content =>", result);
+// fs.readFile("./text.txt", "utf-8", (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log("Reading file content =>", result);
 
-    }
+//     }
 
-    console.log('file read successfully');
+//     console.log('file read successfully');
 
-})
+// })
 
 // Real - World Scenario in Node.js Backend
 // A blocking HTTP server reads a file synchronously, causing other requests to wait until completion.
@@ -37,3 +37,8 @@ fs.readFile("./text.txt", "utf-8", (err, result) => {
 
 // delete file
 // fs.unlinkSync('./text.txt')
+
+// file status 
+// fs.statfsSync('./test.txt')
+console.log((fs.statSync('./test.txt')));
+
