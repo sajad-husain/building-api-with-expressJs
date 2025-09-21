@@ -9,6 +9,10 @@ const server = http.createServer((req, res) => {
         console.log(result);
     })
 
+    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') {
+        res.end()
+    }
+
     if (req.url === '/favicon.ico') {
         res.end()
     }
