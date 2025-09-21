@@ -18,7 +18,7 @@ fs.readFile("./text.txt", "utf-8", (err, result) => {
         console.log(err);
     }
     else {
-        console.log(result);
+        console.log("Reading file content =>", result);
 
     }
 
