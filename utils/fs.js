@@ -31,3 +31,6 @@ fs.readFile("./text.txt", "utf-8", (err, result) => {
 
 // A non - blocking server reads files asynchronously, allowing other requests to proceed while waiting for the file read to complete.
 
+
+// append data in files operation behavious is same for sync and appenFile() method
+fs.appendFileSync('./text.txt', ` Appending today's date which ic ${Date.now()}`)
