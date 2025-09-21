@@ -12,6 +12,7 @@ const server = http.createServer((req, res) => {
                 break
             case '/about': res.end("I'm sajjad hussain")
                 break
+            default: res.end("EROOR 404 TRY ANOTHER ROUTE")
 
         }
     })
