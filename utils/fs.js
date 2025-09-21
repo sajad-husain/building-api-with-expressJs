@@ -7,4 +7,6 @@ const fs = require('fs')
 // A non - blocking server reads files asynchronously, allowing other requests to proceed while waiting for the file read to complete.
 
 
-
+// Blocking
+const result = fs.readFileSync('./contact.txt', "utf-8")
+console.log(result);
