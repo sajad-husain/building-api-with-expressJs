@@ -1,14 +1,9 @@
-const express = require('express')
+const http = require("http")
 
-const app = express()
 
-app.use('/', (req, res) => {
-    res.send('this route is working properly');
+const server = http.createServer((req, res) => {
 
+    res.end("server is created and running")
 })
 
-app.listen(3001, () => {
-
-    console.log('server is created and working properly ');
-
-})
+server.listen(3001, (req, res) => console.log('server is working properly'))
