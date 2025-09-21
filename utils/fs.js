@@ -7,6 +7,8 @@ const fs = require('fs')
 // Asynchronous call
 // fs.writeFile("./text.txt", "salam nabeel", err => { })
 
-// reading this file utf-8 encoding, it encodes based on it's type 
-const readThisFile = fs.readFileSync("./text.txt", "utf-8")
-console.log(readThisFile);
+// Async call which reading this file utf-8 encoding, it encodes based on it's type 
+// const readThisFile = fs.readFileSync("./text.txt", "utf-8")
+// console.log(readThisFile)f
+
+fs.readFile("./text.txt", "utf-8", (err, result) => { })
