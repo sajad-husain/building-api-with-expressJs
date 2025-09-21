@@ -33,4 +33,7 @@ fs.readFile("./text.txt", "utf-8", (err, result) => {
 
 
 // append data in files operation behavious is same for sync and appenFile() method
-fs.appendFileSync('./text.txt', ` Appending today's date which ic ${Date.now()}`)
+// fs.appendFileSync('./text.txt', ` Appending today's date which ic ${Date.now()}`)
+
+// delete file
+// fs.unlinkSync('./text.txt')
