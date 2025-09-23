@@ -23,12 +23,15 @@ const server = http.createServer((req, res) => {
         res.end()
     }
 
-    switch (req.url) {
+    switch (myUrls.pathname) {
         case '/':
             res.end("This is Hompepage")
             break
         case '/about':
             res.end("I'm sajjad hussain")
+            break
+        case '/search':
+            res.end("Your searched query is")
             break
         default: res.end("EROOR 404 TRY ANOTHER ROUTE")
 
