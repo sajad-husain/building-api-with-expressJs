@@ -1,10 +1,16 @@
 const http = require("http")
 const fs = require("fs")
+const url = require("url")
 
 
 const server = http.createServer((req, res) => {
     let counter = 1
     const details = `${Date.now()} ${req.url} log created ${counter + 1} times\n`
+    const myUrls = url.parse(req.url)
+    console.log(myUrls);
+
+
+
     fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
         console.log(result);
     })
