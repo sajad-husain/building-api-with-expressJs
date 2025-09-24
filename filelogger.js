@@ -6,8 +6,7 @@ const url = require("url")
 const server = http.createServer((req, res) => {
     let counter = 1
     const details = `${Date.now()} ${req.url} log created ${counter + 1} times\n`
-    const myUrls = url.parse(req.url)
-    console.log(myUrls);
+    const myUrls = url.parse(req.url, true)
 
 
 
@@ -28,10 +27,12 @@ const server = http.createServer((req, res) => {
             res.end("This is Hompepage")
             break
         case '/about':
-            res.end("I'm sajjad hussain")
+            const username = myUrls.query.myname
+            res.end("I'm " + username)
             break
         case '/search':
-            res.end("Your searched query is")
+            const serach = myUrls.query.search
+            res.end("Your searched query is" + search)
             break
         default: res.end("EROOR 404 TRY ANOTHER ROUTE")
 
