@@ -13,6 +13,8 @@ const server = http.createServer((req, res) => {
 
     fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
         console.log(result);
+        console.log(err);
+
     })
 
     if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') {

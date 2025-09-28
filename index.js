@@ -4,7 +4,7 @@ const url = require("url")
 
 
 const server = http.createServer((req, res) => {
-    let counter = 1
+    const counter = 1
     const details = `${Date.now()} ${req.url} log created ${counter + 1} times\n`
     const myUrls = url.parse(req.url, true)
     console.log(myUrls);
@@ -15,13 +15,9 @@ const server = http.createServer((req, res) => {
         console.log(result);
     })
 
-    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') {
-        res.end()
-    }
+    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') return res.end()
 
-    if (req.url === '/favicon.ico') {
-        res.end()
-    }
+    if (req.url === '/favicon.ico') return res.end()
 
     switch (myUrls.pathname) {
         case '/':
