@@ -2,10 +2,10 @@ const http = require("http")
 const fs = require("fs")
 const url = require("url")
 
-
+let counter = 0
 const server = http.createServer((req, res) => {
-    const counter = 1
-    const details = `${Date.now()} ${req.url} log created ${counter + 1} times\n`
+    counter += 1
+    const details = `${Date.now()} ${req.url} log created ${counter} times\n`
     const myUrls = url.parse(req.url, true)
     console.log(myUrls);
 
