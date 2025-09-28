@@ -2,28 +2,19 @@ const http = require("http")
 const fs = require("fs")
 const url = require("url")
 
-
+let counter = 0
 const server = http.createServer((req, res) => {
-    let counter = 1
-    const details = `${Date.now()} ${req.url} log created ${counter + 1} times\n`
+    counter += 1
+    const details = `${Date.now()} ${req.url} log created ${counter} times\n`
     const myUrls = url.parse(req.url, true)
     console.log(myUrls);
 
-
-
     fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
         console.log(result);
-        console.log(err);
-
     })
 
-    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') {
-        res.end()
-    }
-
-    if (req.url === '/favicon.ico') {
-        res.end()
-    }
+    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') return res.end()
+    if (req.url === '/favicon.ico') return res.end()
 
     switch (myUrls.pathname) {
         case '/':
@@ -34,8 +25,8 @@ const server = http.createServer((req, res) => {
             res.end("I'm " + username)
             break
         case '/search':
-            const serach = myUrls.query.search
-            res.end("Your searched query is" + search)
+            const search = myUrls.query.search
+            res.end("Your searched query is " + search)
             break
         default: res.end("EROOR 404 TRY ANOTHER ROUTE")
 
