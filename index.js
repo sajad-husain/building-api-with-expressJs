@@ -9,14 +9,11 @@ const server = http.createServer((req, res) => {
     const myUrls = url.parse(req.url, true)
     console.log(myUrls);
 
-
-
     fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
         console.log(result);
     })
 
     if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') return res.end()
-
     if (req.url === '/favicon.ico') return res.end()
 
     switch (myUrls.pathname) {
