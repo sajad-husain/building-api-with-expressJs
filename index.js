@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
             res.end("I'm " + username)
             break
         case '/search':
-            const serach = myUrls.query.search
+            const search = myUrls.query.search
             res.end("Your searched query is" + search)
             break
         default: res.end("EROOR 404 TRY ANOTHER ROUTE")
