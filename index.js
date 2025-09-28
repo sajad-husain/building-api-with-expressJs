@@ -3,6 +3,15 @@ const fs = require("fs")
 const url = require("url")
 const exrpess = require("express")
 
+const app = exrpess()
+
+app.get('/', (req, res) => {
+    res.send("this is homepage from express app")
+})
+
+app.get('/about', (req, res) => {
+    res.send("hello from about page")
+})
 
 
 let counter = 0
