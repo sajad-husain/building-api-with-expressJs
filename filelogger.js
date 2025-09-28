@@ -5,7 +5,7 @@ const url = require("url")
 let counter = 0
 const server = http.createServer((req, res) => {
     counter += 1
-    const details = `${Date.now()} ${req.url} log created ${counter} times\n`
+    const details = `${Date.now()}: requestd method is ${req.method} ${req.url} log created ${counter} times\n`
     const myUrls = url.parse(req.url, true)
     console.log(myUrls);
 
