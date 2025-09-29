@@ -6,44 +6,15 @@ const exrpess = require("express")
 const app = exrpess()
 
 app.get('/', (req, res) => {
-    res.send("this is homepage from express app")
+    return res.send("this is homepage from express app")
 })
 
 app.get('/about', (req, res) => {
-    res.send("hello from about page")
+    return res.send("hello from about page")
 })
 
 
-let counter = 0
-function handleFileLogs(req, res) {
-    counter += 1
-    const details = `${Date.now()}: requestd method is ${req.method} ${req.url} log created ${counter} times\n`
-    const myUrls = url.parse(req.url, true)
-    console.log(myUrls);
 
-    fs.appendFile("./logdetails.txt", details, "utf-8", (err, result) => {
-        console.log(result);
-    })
 
-    if (req.url === '/.well-known/appspecific/com.chrome.devtools.json') return res.end()
-    if (req.url === '/favicon.ico') return res.end()
-
-    switch (myUrls.pathname) {
-        case '/':
-            res.end("This is Hompepage")
-            break
-        case '/about':
-            const username = myUrls.query.myname
-            res.end("I'm " + username)
-            break
-        case '/search':
-            const search = myUrls.query.search
-            res.end("Your searched query is " + search)
-            break
-        default: res.end("EROOR 404 TRY ANOTHER ROUTE")
-
-    }
-}
-
-const server = http.createServer(handleFileLogs)
+const server = http.createServer(app)
 server.listen(3001, (req, res) => console.log('server is working properly'))
