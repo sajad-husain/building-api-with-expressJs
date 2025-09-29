@@ -13,8 +13,5 @@ app.get('/about', (req, res) => {
     return res.send("hello from about page")
 })
 
-
-
-
 const server = http.createServer(app)
 server.listen(3001, (req, res) => console.log('server is working properly'))
