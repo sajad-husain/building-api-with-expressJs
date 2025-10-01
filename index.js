@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    return res.send("hello from about page")
+    return res.send(`Hello ${req.query.name}`)
 })
 
 // const server = http.createServer(app)
