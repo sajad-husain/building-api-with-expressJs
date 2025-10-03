@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     res.send("this is homepage")
 })
 
-app.get('/users', (req, res) => {
+app.get('/api/users', (req, res) => {
     return res.json(users)
 })
 
