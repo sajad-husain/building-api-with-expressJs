@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 app.get('/users', (req, res) => {
     const html = `<ul>
-    ${users.map(item => `<li>${item.firstName}</li>`).join('')}
+    ${users.map(item => `<li>${item.firstName}</li>`).join('')} // join method in needed for proper orientation and rendering on webpage
         </ul>
     `;
     res.send(html)
