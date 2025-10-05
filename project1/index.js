@@ -28,6 +28,21 @@ app.get("/api/users/:id", (req, res) => {
     return res.json(user)
 })
 
+// post request
+app.post("/api/users", (req, res) => {
+    return res.json({ status: "pending" })
+})
+
+// patch request
+app.patch("/api/users/:id", (req, res) => {
+    return res.json({ status: "update pending" })
+})
+
+// delete request
+app.patch("/api/users/:id", (req, res) => {
+    return res.json({ status: "deletion is pending" })
+})
+
 //json data for all users
 app.get('/api/users', (req, res) => {
     return res.json(users)
