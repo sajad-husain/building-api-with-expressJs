@@ -8,6 +8,7 @@ app.get('/', (req, res) => {
     res.send("this is homepage")
 })
 
+// getting all usernames
 app.get('/users', (req, res) => {
     // join method in needed for proper orientation and rendering on webpage
     const html = `<ul>
@@ -17,6 +18,7 @@ app.get('/users', (req, res) => {
     res.send(html)
 })
 
+// finding user using it's id
 app.get("/api/users/:id", (req, res) => {
     const id = req.params.id
     const user = users.find((item) => item.id === id)
@@ -26,6 +28,7 @@ app.get("/api/users/:id", (req, res) => {
     return res.json(user)
 })
 
+//json data for all users
 app.get('/api/users', (req, res) => {
     return res.json(users)
 })
