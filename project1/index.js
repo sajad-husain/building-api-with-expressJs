@@ -39,7 +39,7 @@ app.patch("/api/users/:id", (req, res) => {
 })
 
 // delete request
-app.patch("/api/users/:id", (req, res) => {
+app.delete("/api/users/:id", (req, res) => {
     return res.json({ status: "deletion is pending" })
 })
 
