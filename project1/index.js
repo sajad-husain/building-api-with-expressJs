@@ -44,7 +44,16 @@ app.post("/api/users", (req, res) => {
 
 // patch request
 app.patch("/api/users/:id", (req, res) => {
-    return res.json({ status: "update pending" })
+    const id = req.params.id
+    const user = users.find(item => item.id === id)
+    if (user) {
+        const body = req.body
+        users.push({ ...body })
+        return res.json(users)
+    } else {
+
+        return res.json({ status: "failed" })
+    }
 })
 
 // delete request
