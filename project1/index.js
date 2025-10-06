@@ -1,8 +1,12 @@
 const express = require("express")
+const fs = require('fs')
+
 const users = require("./mockusers.json")
 
 const port = 3005
 const app = express()
+
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.send("this is homepage")
@@ -30,7 +34,12 @@ app.get("/api/users/:id", (req, res) => {
 
 // post request
 app.post("/api/users", (req, res) => {
-    return res.json({ status: "pending" })
+    const body = req.body
+    users.push({ ...body, id: users.length + 1 })
+    fs.writeFile("./mockusers.json", JSON.stringify(users), (err, data) => {
+        if (err) return res.status(505).json({ err: "failed to make post request" })
+    })
+    return res.json({ status: "success", id: users.length })
 })
 
 // patch request
