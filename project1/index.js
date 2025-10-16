@@ -62,7 +62,8 @@ app.patch("/api/users/:id", (req, res) => {
 
 // delete request
 app.delete("/api/users/:id", (req, res) => {
-    return res.json({ status: "deletion is pending" })
+    const userId = req.params.id
+    return res.json({ status: `user with id ${userId} deleted.` })
 })
 
 //json data for all users
