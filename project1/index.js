@@ -7,6 +7,10 @@ const users = require("./mockusers.json")
 const port = 3005
 const app = express()
 
+//Mongoose schema
+const userSchema = new mongoose
+
+//Middlewares
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
