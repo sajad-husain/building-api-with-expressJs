@@ -3,12 +3,30 @@ const fs = require('fs')
 const mongoose = require('mongoose')
 
 const users = require("./mockusers.json")
+const { type } = require("os")
 
 const port = 3005
 const app = express()
 
 //Mongoose schema
-const userSchema = new mongoose
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+    },
+    age: {
+        type: Number,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+})
 
 //Middlewares
 app.use(express.urlencoded({ extended: false }))
