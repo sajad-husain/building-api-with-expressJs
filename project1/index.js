@@ -33,6 +33,8 @@ const userSchema = new mongoose.Schema({
     },
 })
 
+const User = mongoose.model("user", userSchema)
+
 //Middlewares
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
