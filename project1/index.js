@@ -9,7 +9,9 @@ const port = 3005
 const app = express()
 
 //DB CONNECTION
-mongoose.connect('mongodb://127.0.0.1:27017')
+mongoose.connect('mongodb://127.0.0.1:27017/users-app-1')
+    .then(() => console.log("mongoose connected"))
+    .catch((err) => console.log("MongoDB error: ", err))
 
 //Mongoose schema
 const userSchema = new mongoose.Schema({
