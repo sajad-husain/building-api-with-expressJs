@@ -45,18 +45,17 @@ app.post("/api/users", (req, res) => {
 
 // patch request
 app.patch("/api/users/:id", (req, res) => {
-    const id = req.params.id
+    const id = Number(req.params.id)
     const user = users.find(item => item.id === id)
     if (user) {
         const body = req.body
         users.push({ ...body, user })
         fs.writeFile("./mockusers.json", JSON.stringify(users), (err, data) => {
-            if (err) return res.json({ status: "failed" })
+            if (err) return res.status(500).json({ status: "failed" })
         })
         return res.json({ success: "success", user })
     } else {
-
-
+        return res.status(404).json({ error: "user not found" })
     }
 })
 
